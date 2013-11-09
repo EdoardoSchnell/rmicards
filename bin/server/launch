@@ -1,0 +1,1 @@
+java -cp /home/reluigi/public_html/common/:. -Djava.rmi.server.codebase=file:///home/reluigi/public_html/common/ -Djava.security.policy=policy card.MasterServer 1099
