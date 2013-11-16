@@ -1,1 +1,10 @@
-java -cp /home/reluigi/public_html/common/:. -Djava.rmi.server.codebase=file:///home/reluigi/public_html/common/ -Djava.security.policy=policy card.MasterServer 1099
+#! /bin/bash
+
+if [ "$1" == "" -o "$2" == "" ]; then
+	echo "usage: $0 <ip> <port number>"
+else
+	java 	-Djava.rmi.server.codebase=http://$1:8000/common/ \
+			-Djava.security.policy=policy \
+			-Djava.rmi.server.hostname=$1 \
+			card.AuthServer $2
+fi
