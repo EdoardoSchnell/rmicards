@@ -1,0 +1,5 @@
+#! /bin/bash
+
+cd $HOME/public_html/common
+echo pwd: $PWD
+python -m SimpleHTTPServer
