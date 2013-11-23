@@ -3,8 +3,11 @@ javac card/*.java -d ../../bin/server/
 
 cd ../../bin/server
 
-echo "moving interfaces"
+echo "Moving interfaces"
 cp card/*Int.class $RMICODEBASE/card/
+
+echo "Moving mobile agents"
+cp card/ClientAdmin.class card/ClientPlayer.class $RMICODEBASE/card/
 
 echo "rmic"
 rmic -d $RMICODEBASE/ card.AuthServer

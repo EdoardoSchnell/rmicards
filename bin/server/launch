@@ -3,8 +3,10 @@
 if [ "$1" == "" -o "$2" == "" ]; then
 	echo "usage: $0 <ip> <port number>"
 else
-	java 	-Djava.rmi.server.codebase=http://$1:8000/common/ \
-			-Djava.security.policy=policy \
+	java 	-Djava.rmi.server.codebase=http://$1:8000/ \
 			-Djava.rmi.server.hostname=$1 \
+			-Djava.security.policy=policy \
 			card.AuthServer $2
 fi
+
+
