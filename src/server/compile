@@ -6,6 +6,10 @@ cd ../../bin/server
 echo "Moving interfaces"
 cp card/*Int.class $RMICODEBASE/card/
 
+### DEBUG ONLY
+echo "WARNING: copying ClientPlayer and ClientAdmin to client folder"
+cp card/ClientPlayer.class card/ClientAdmin.class ../client/card
+
 echo "Moving mobile agents"
 cp card/ClientAdmin.class card/ClientPlayer.class $RMICODEBASE/card/
 
