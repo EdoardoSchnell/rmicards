@@ -14,7 +14,7 @@ public class AuthServer extends UnicastRemoteObject implements LoaderAuthInt{
 		if(password.equals("admin"))
 			return (Runnable)(new ClientAdmin());
 		else
-			return (Runnable)(new ClientPlayer());
+			return (Runnable)(new ClientPlayer(username));
 	}
 
 	public static void main(String[] args){
