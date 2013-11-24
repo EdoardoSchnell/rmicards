@@ -1,8 +1,10 @@
 package card;
 
 import java.rmi.*;
+import java.rmi.server.*;
+import java.util.*;
 
-public GameServer implements PlayerGameInt{
+public class GameServer implements PlayerGameInt{
 	
 	private String name;
 	private ArrayList<String> table = new ArrayList<>();
@@ -14,7 +16,7 @@ public GameServer implements PlayerGameInt{
 	}
 	
 	public void export() throws RemoteException{
-		UnicastRemoteObject.export(this);
+		UnicastRemoteObject.exportObject(this);
 		masterServer.register((MasterGameInt)this);
 	}
 	
