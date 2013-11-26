@@ -5,7 +5,7 @@ import java.rmi.server.*;
 
 public class AuthServer extends UnicastRemoteObject implements LoaderAuthInt{
 
-	private MasterServer master;
+	private static MasterServer master;
 	
 	public AuthServer() throws RemoteException{
 		super();

@@ -1,4 +1,5 @@
 #! /bin/bash
+clear;
 
 if [ "$1" == "" -o "$2" == "" ]; then
 	echo "usa: $0 <ip> <numbero porta>"

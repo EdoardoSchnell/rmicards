@@ -1,2 +1,3 @@
+clear;
 echo "javac"
 javac card/*.java -d ../../bin/client/
