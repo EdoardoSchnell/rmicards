@@ -5,6 +5,8 @@ import java.rmi.server.*;
 
 public class AuthServer extends UnicastRemoteObject implements LoaderAuthInt{
 
+	private MasterServer master;
+	
 	public AuthServer() throws RemoteException{
 		super();
 	}
@@ -14,7 +16,8 @@ public class AuthServer extends UnicastRemoteObject implements LoaderAuthInt{
 		if(password.equals("admin"))
 			return (Runnable)(new ClientAdmin());
 		else
-			return (Runnable)(new ClientPlayer(username));
+						
+			return (Runnable)(new ClientPlayer(username, (PlayerMasterInt)master));
 	}
 
 	public static void main(String[] args){
@@ -27,8 +30,9 @@ public class AuthServer extends UnicastRemoteObject implements LoaderAuthInt{
 		System.out.println("Current codebase:" + System.getProperty("java.rmi.server.codebase"));
 		
 		try{
-			//MasterServer master = new MasterServer();//crea il master server
-			//System.out.println("MasterServer creato.");
+			master = new MasterServer();//crea il master server
+			System.out.println("MasterServer creato.");
+			
 			AuthServer auth = new AuthServer();//crea auth server
 			System.out.println("AuthServer creato.");
 			Naming.rebind("//:" + port + "/authServer", (LoaderAuthInt)auth);//rebind auth server

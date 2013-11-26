@@ -4,7 +4,7 @@ import java.rmi.*;
 import java.rmi.server.*;
 import java.util.*;
 
-public class GameServer implements PlayerGameInt{
+public class GameServer implements PlayerGameInt, Runnable{
 	
 	private String name;
 	private ArrayList<String> table = new ArrayList<>();
@@ -15,9 +15,14 @@ public class GameServer implements PlayerGameInt{
 		this.masterServer = masterServer;
 	}
 	
-	public void export() throws RemoteException{
+	public void run(){
+		try{
 		UnicastRemoteObject.exportObject(this);
 		masterServer.register((MasterGameInt)this);
+		}catch(RemoteException e){
+			e.printStackTrace();
+			System.exit(1);
+		}
 	}
 	
 	public void join(GamePlayerInt p) throws RemoteException{

@@ -7,8 +7,7 @@ import java.util.*;
 public class MasterServer extends UnicastRemoteObject implements PlayerMasterInt, GameMasterInt{
 	
 	private ArrayList<MasterGameInt> activeGameServers = new ArrayList<>();
-	
-	
+		
 	public MasterServer() throws RemoteException{
 		super();
 	}

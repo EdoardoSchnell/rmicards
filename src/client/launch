@@ -1,0 +1,8 @@
+#! /bin/bash
+
+if [ "$1" == "" -o "$2" == "" ]; then
+	echo "usa: $0 <ip> <numbero porta>"
+else
+	java 	-Djava.security.policy=policy \
+		card.CLientLoader "$1:$2"
+fi
